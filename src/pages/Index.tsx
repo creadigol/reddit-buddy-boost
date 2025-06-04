@@ -7,20 +7,20 @@ import Dashboard from '../components/Dashboard';
 const Index = () => {
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
+      <div className="min-h-screen flex w-full bg-gray-50">
         <AppSidebar />
         <main className="flex-1 flex flex-col">
-          <header className="flex items-center gap-4 p-6 border-b border-white/10 bg-black/20 backdrop-blur-xl">
-            <SidebarTrigger className="text-white hover:bg-white/10 p-2 rounded-lg transition-colors" />
+          <header className="flex items-center gap-4 p-6 bg-white border-b border-gray-200">
+            <SidebarTrigger className="text-gray-600 hover:bg-gray-100 p-2 rounded-md transition-colors" />
             <div className="flex-1">
               <div className="flex items-center justify-between">
                 <div>
-                  <h1 className="text-xl font-semibold">Welcome back!</h1>
-                  <p className="text-sm text-muted-foreground">Here's what your AI assistant has been up to</p>
+                  <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
+                  <p className="text-sm text-gray-600 mt-1">Monitor your AI assistant's performance across platforms</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-green-400 font-medium">Live</span>
+                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <span className="text-sm text-gray-600 font-medium">Online</span>
                 </div>
               </div>
             </div>

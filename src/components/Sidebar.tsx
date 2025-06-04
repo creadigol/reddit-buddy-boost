@@ -15,14 +15,12 @@ import {
 import { 
   BarChart3, 
   MessageSquare, 
-  Instagram, 
   Bot, 
-  Heart,
   Activity,
   Settings,
-  Zap,
   Target,
-  Users
+  Users,
+  TrendingUp
 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
@@ -50,33 +48,16 @@ const AppSidebar = () => {
       isActive: false
     },
     {
-      title: "Preferred Questions",
-      url: "#",
-      icon: Heart,
-      badge: "42",
-      isActive: false
-    },
-    {
       title: "Live Actions",
       url: "#",
       icon: Activity,
-      badge: "New",
+      badge: "12",
       isActive: false
     },
     {
-      title: "Instagram Posts",
-      url: "#",
-      icon: Instagram,
-      badge: null,
-      isActive: false
-    }
-  ];
-
-  const analyticsItems = [
-    {
       title: "Performance",
       url: "#",
-      icon: Target,
+      icon: TrendingUp,
       badge: null,
       isActive: false
     },
@@ -90,43 +71,43 @@ const AppSidebar = () => {
   ];
 
   return (
-    <Sidebar className="border-r border-white/10">
-      <SidebarHeader className="p-6 border-b border-white/10">
+    <Sidebar className="border-r border-gray-200 bg-white">
+      <SidebarHeader className="p-6 border-b border-gray-200">
         <div className="flex items-center gap-3">
-          <div className="p-2 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl">
-            <Zap className="h-6 w-6 text-white" />
+          <div className="p-2 bg-indigo-600 rounded-lg">
+            <Target className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-bold gradient-text">SocialAI</h2>
-            <p className="text-xs text-muted-foreground">AI Assistant Hub</p>
+            <h2 className="text-xl font-bold text-gray-900">SocialAI</h2>
+            <p className="text-xs text-gray-500">AI Assistant</p>
           </div>
         </div>
       </SidebarHeader>
       
       <SidebarContent className="p-4">
         <SidebarGroup>
-          <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground mb-4">
-            MAIN NAVIGATION
+          <SidebarGroupLabel className="text-xs font-semibold text-gray-500 mb-4 uppercase tracking-wider">
+            Navigation
           </SidebarGroupLabel>
           <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
+            <SidebarMenu className="space-y-1">
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton 
                     asChild 
-                    className={`h-12 px-4 rounded-xl transition-all duration-200 ${
+                    className={`h-10 px-3 rounded-lg transition-colors ${
                       item.isActive 
-                        ? 'bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-purple-400 border border-purple-500/30' 
-                        : 'hover:bg-white/10 text-muted-foreground hover:text-foreground'
+                        ? 'bg-indigo-50 text-indigo-700 border border-indigo-200' 
+                        : 'hover:bg-gray-100 text-gray-700 hover:text-gray-900'
                     }`}
                   >
                     <a href={item.url} className="flex items-center gap-3 w-full">
-                      <item.icon className="h-5 w-5" />
-                      <span className="font-medium">{item.title}</span>
+                      <item.icon className="h-4 w-4" />
+                      <span className="font-medium text-sm">{item.title}</span>
                       {item.badge && (
                         <Badge 
                           variant="secondary" 
-                          className="ml-auto text-xs bg-purple-500/20 text-purple-400 border-purple-500/30"
+                          className="ml-auto text-xs bg-gray-100 text-gray-600 border-gray-200"
                         >
                           {item.badge}
                         </Badge>
@@ -138,52 +119,29 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-
-        <SidebarGroup className="mt-8">
-          <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground mb-4">
-            ANALYTICS
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu className="space-y-2">
-              {analyticsItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton 
-                    asChild 
-                    className="h-12 px-4 rounded-xl transition-all duration-200 hover:bg-white/10 text-muted-foreground hover:text-foreground"
-                  >
-                    <a href={item.url} className="flex items-center gap-3 w-full">
-                      <item.icon className="h-5 w-5" />
-                      <span className="font-medium">{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="p-4 border-t border-white/10">
+      <SidebarFooter className="p-4 border-t border-gray-200">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton 
               asChild 
-              className="h-12 px-4 rounded-xl transition-all duration-200 hover:bg-white/10 text-muted-foreground hover:text-foreground"
+              className="h-10 px-3 rounded-lg transition-colors hover:bg-gray-100 text-gray-700 hover:text-gray-900"
             >
               <a href="#" className="flex items-center gap-3 w-full">
-                <Settings className="h-5 w-5" />
-                <span className="font-medium">Settings</span>
+                <Settings className="h-4 w-4" />
+                <span className="font-medium text-sm">Settings</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
         
-        <div className="mt-4 p-4 bg-gradient-to-br from-purple-500/10 to-purple-600/10 rounded-xl border border-purple-500/20">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-            <span className="text-sm font-medium text-green-400">AI Status</span>
+        <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+          <div className="flex items-center gap-2 mb-1">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-sm font-medium text-green-700">System Status</span>
           </div>
-          <p className="text-xs text-muted-foreground">All systems operational</p>
+          <p className="text-xs text-green-600">All systems operational</p>
         </div>
       </SidebarFooter>
     </Sidebar>
